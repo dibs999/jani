@@ -4,387 +4,56 @@
   <meta charset="UTF-8" />
   <title>Für min babyyy <3 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: radial-gradient(circle at top, #ffe4f2, #ffd9e5, #ffc6de);
-      background-size: 180% 180%;
-      animation: bgMove 22s ease-in-out infinite alternate;
-    }
-
-    @keyframes bgMove {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 50% 80%; }
-      100% { background-position: 100% 0%; }
-    }
-
-    .floating-heart {
-      position: fixed;
-      font-size: 22px;
-      opacity: 0.2;
-      pointer-events: none;
-      animation: floatUp 12s linear infinite;
-    }
-
-    .floating-heart.h1 { left: 10%; bottom: -10%; animation-delay: 0s; }
-    .floating-heart.h2 { left: 80%; bottom: -15%; animation-delay: 3s; }
-    .floating-heart.h3 { left: 50%; bottom: -12%; animation-delay: 6s; }
-
-    @keyframes floatUp {
-      0% { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0; }
-      10% { opacity: 0.3; }
-      50% { opacity: 0.15; }
-      100% { transform: translate3d(0, -120vh, 0) scale(1.2); opacity: 0; }
-    }
-
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 24px;
-      padding: 22px 20px 26px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-      transform: translateY(6px) scale(0.98);
-      animation: cardIntro 0.7s ease-out forwards;
-    }
-
-    @keyframes cardIntro {
-      0% { opacity: 0; transform: translateY(18px) scale(0.96); }
-      60% { opacity: 1; transform: translateY(-3px) scale(1.01); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* süße Deko-Herzen im Hintergrund */
-    .card::before,
-    .card::after {
-      content: "❤";
-      position: absolute;
-      font-size: 40px;
-      opacity: 0.13;
-      animation: float 6s infinite ease-in-out;
-    }
-
-    .card::before {
-      top: 6%;
-      right: 14%;
-    }
-
-    .card::after {
-      bottom: 3%;
-      left: 10%;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes float {
-      0%   { transform: translateY(0) scale(1); }
-      50%  { transform: translateY(-10px) scale(1.08); }
-      100% { transform: translateY(0) scale(1); }
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 6px;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      text-align: center;
-      color: #777;
-      margin-bottom: 18px;
-    }
-
-    .quote-wrapper {
-      min-height: 110px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 16px 16px 22px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #fff7fd, #ffeef8);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quote-wrapper::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255, 192, 234, 0.25), transparent 55%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    .quote-wrapper.revealing::before {
-      opacity: 1;
-      animation: shimmer 0.9s ease-out;
-    }
-
-    @keyframes shimmer {
-      0% { opacity: 0; }
-      30% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
-    .quote-text {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.35;
-      opacity: 0;
-      transform: translateY(10px) scale(0.98);
-      transition: opacity 0.35s ease, transform 0.35s ease;
-    }
-
-    .quote-text.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .quote-text.loading {
-      opacity: 0.9;
-      font-size: 16px;
-      letter-spacing: 0.03em;
-      animation: loadingPulse 0.8s ease-in-out infinite alternate;
-    }
-
-    @keyframes loadingPulse {
-      0% { transform: translateY(4px) scale(0.96); opacity: 0.6; }
-      100% { transform: translateY(0) scale(1); opacity: 1; }
-    }
-
-    .progress {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 8px;
-      height: 3px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.6);
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-
-    .progress.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .progress-inner {
-      height: 100%;
-      width: 0;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #ff7aa2, #ff4e8a);
-    }
-
-    .progress-inner.active {
-      animation: progressAnim 2.6s linear forwards;
-    }
-
-    @keyframes progressAnim {
-      0% { width: 0%; }
-      100% { width: 100%; }
-    }
-
-    .hint {
-      font-size: 11px;
-      text-align: center;
-      color: #999;
-      margin-top: 8px;
-      margin-bottom: 12px;
-    }
-
-    .btn {
-      width: 100%;
-      border: none;
-      border-radius: 1000px;
-      padding: 14px 18px;
-      font-size: 16px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #ff7aa2, #ff4e8a);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 12px 24px rgba(255, 78, 138, 0.48);
-      cursor: pointer;
-      outline: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .btn:active {
-      transform: translateY(1px) scale(0.98);
-      box-shadow: 0 6px 14px rgba(255, 78, 138, 0.35);
-    }
-
-    .btn.thinking {
-      animation: buttonPulse 0.9s ease-in-out infinite alternate;
-      box-shadow: 0 14px 28px rgba(255, 78, 138, 0.6);
-      cursor: default;
-    }
-
-    @keyframes buttonPulse {
-      0% { transform: translateY(0) scale(1); filter: brightness(1); }
-      100% { transform: translateY(1px) scale(0.98); filter: brightness(1.08); }
-    }
-
-    .btn-emoji {
-      font-size: 18px;
-    }
-
-    .footer {
-      margin-top: 10px;
-      font-size: 11px;
-      text-align: center;
-      color: #aaa;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+  <div class="background-ornaments">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+    <span class="ring ring-1"></span>
+  </div>
+
   <span class="floating-heart h1">💗</span>
   <span class="floating-heart h2">💖</span>
   <span class="floating-heart h3">💕</span>
 
   <div class="card">
-    <div class="title">Für meinen kleinen Schatz min Spatz 💖</div>
-    
+    <span class="corner-ribbon r1"></span>
+    <span class="corner-ribbon r2"></span>
+    <span class="corner-ribbon r3"></span>
+    <span class="corner-ribbon r4"></span>
+
+    <div class="header">
+      <div id="title" class="title">Für meinen kleinen Schatz min Spatz 💖</div>
+      <div id="subtitle" class="subtitle"></div>
+    </div>
+
+    <div class="garland">
+      <span class="garland-heart">💗</span>
+      <span class="garland-heart">✨</span>
+      <span class="garland-heart">💝</span>
+      <span class="garland-heart">✨</span>
+      <span class="garland-heart">💗</span>
+    </div>
 
     <div class="quote-wrapper" id="quoteWrapper">
-      <div id="quoteText" class="quote-text">
-        Schau mal der Button unter mir :)
-      </div>
+      <div id="quoteText" class="quote-text show">Schau mal der Button unter mir :)</div>
       <div class="progress" id="progress">
         <div class="progress-inner" id="progressInner"></div>
       </div>
     </div>
 
-    <div class="hint">Du kannst auch mehrmals klicken hehe</div>
+    <div id="hint" class="hint">Du kannst auch mehrmals klicken hehe</div>
 
     <button id="loveButton" class="btn">
       <span class="btn-emoji">💌</span>
       <span class="btn-label">Ich möchte einen Zettel ziehen</span>
     </button>
 
-    <div class="footer">Von deinem baby.</div>
+    <div id="footer" class="footer">Von deinem baby.</div>
   </div>
 
-  <script>
-    
-    const messages = [
-      "BAABYYY.....Hab dich doch so gern",
-      "Bist mein kleiner Fratellbäcker",
-      "Ich bin so dankbar, dass ich dich hab <3",
-      "Wenn ich an Zuhause denke, denke ich an dich",
-      "Mag deine schönen Augen",
-      "Mag dich doch morgens sooo gerne!",
-      "Bist mein kleiner schatz min Spatz",
-      "Ich kuschel doch so gerne mti dir",
-      "Bin so gerne mit dir am goofen",
-      "Fühl mich doch so geborgen bei meinem Baby <3",
-      "Möchte odch so gerne mit dir kuscheln :(",
-      "Vermisse dich doch so....",
-      "Bist mein kleines Katzi",
-      "Mag deinen Körpi soooo",
-      "Min kleiner Hase bist du",
-      "Bin doch so stolz auf dich",
-      "Finde dich doch so toll",
-      
-    ];
-
-    const button = document.getElementById("loveButton");
-    const quoteText = document.getElementById("quoteText");
-    const quoteWrapper = document.getElementById("quoteWrapper");
-    const buttonLabel = button.querySelector(".btn-label");
-    const progress = document.getElementById("progress");
-    const progressInner = document.getElementById("progressInner");
-
-    let isRevealing = false;
-
-    function getRandomMessage() {
-      if (messages.length === 0) return "Upsi";
-      const index = Math.floor(Math.random() * messages.length);
-      return messages[index];
-    }
-
-    button.addEventListener("click", () => {
-      if (isRevealing) return; // während der Animation nichts machen
-      isRevealing = true;
-
-      const newMessage = getRandomMessage();
-
-      // nur 2 Spannungs-Sätze
-      const suspensePhrases = [
-        "Hmmmm...welches nehmen wir denn...",
-        "Oh ja feeenn, das passt perfekt zu dir!!!!"
-      ];
-
-      quoteText.classList.remove("show");
-      quoteText.classList.add("loading");
-      quoteWrapper.classList.add("revealing");
-
-      // Ladebalken aktivieren
-      progress.classList.add("active");
-      progressInner.classList.remove("active");
-      void progressInner.offsetWidth; // Reflow
-      progressInner.classList.add("active");
-
-      // Button in "denkt nach" versetzen
-      button.classList.add("thinking");
-      buttonLabel.textContent = "...";
-
-      // Erster Satz direkt anzeigen
-      quoteText.textContent = suspensePhrases[0];
-
-      const suspenseDuration = 2600; // wie lange die Spannung aufgebaut wird
-
-      // Nach der Hälfte der Zeit auf Satz 2 wechseln
-      setTimeout(() => {
-        quoteText.textContent = suspensePhrases[1];
-      }, suspenseDuration * 0.55);
-
-      // Nach Ablauf die eigentliche Nachricht zeigen
-      setTimeout(() => {
-        quoteText.classList.remove("loading");
-        quoteText.textContent = newMessage;
-        // Reflow, damit show-Animation sauber startet
-        void quoteText.offsetWidth;
-        quoteText.classList.add("show");
-
-        quoteWrapper.classList.remove("revealing");
-        button.classList.remove("thinking");
-        buttonLabel.textContent = "Noch ein Zettiiii";
-
-        progress.classList.remove("active");
-        progressInner.classList.remove("active");
-
-        isRevealing = false;
-      }, suspenseDuration);
-    });
-
-    // Startzustand eingeblendet
-    window.addEventListener("DOMContentLoaded", () => {
-      quoteText.classList.add("show");
-    });
-  </script>
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>
