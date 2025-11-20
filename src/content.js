@@ -1,13 +1,13 @@
 export const pageCopy = {
-  title: "Für meinen kleinen Schatz, min Spatz 💖",
-  subtitle: "Ein kleines Nest voller weicher Worte nur für dich.",
-  introMessage: "Jeder Klick bringt einen neuen Liebeszettel ans Licht.",
-  hint: "Du kannst immer wieder ziehen – hier warten noch mehr Worte auf dich.",
-  buttonIdle: "Lass uns einen Zettel ziehen",
-  buttonAfter: "Noch einen Zettel bitte",
+  title: "Für meinen kleinen Schatz min Spatz 💖",
+  subtitle: "",
+  introMessage: "Schau mal der Button unter mir :)",
+  hint: "Du kannst auch mehrmals klicken hehe",
+  buttonIdle: "Ich möchte einen Zettel ziehen",
+  buttonAfter: "Noch ein Zettiiii",
   suspensePhrases: [
-    "Hmmmm... welches passt heute am besten?",
-    "Oh ja, das hier fühlt sich perfekt für dich an!",
+    "Hmmmm...welches nehmen wir denn...",
+    "Oh ja feeenn, das passt perfekt zu dir!!!!",
   ],
-  footer: "Von deinem Baby. Für immer.",
+  footer: "Von deinem baby.",
 };
