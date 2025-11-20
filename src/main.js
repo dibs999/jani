@@ -68,11 +68,13 @@ function revealMessage() {
   setTimeout(() => {
     elements.quoteText.classList.remove("loading");
     elements.quoteText.textContent = newMessage;
+    elements.quoteText.classList.remove("bounce");
     void elements.quoteText.offsetWidth;
-    elements.quoteText.classList.add("show");
+    elements.quoteText.classList.add("show", "bounce");
 
     elements.quoteWrapper.classList.add("celebrate");
     setTimeout(() => elements.quoteWrapper.classList.remove("celebrate"), 900);
+    setTimeout(() => elements.quoteText.classList.remove("bounce"), 950);
 
     elements.quoteWrapper.classList.remove("revealing");
     elements.button.classList.remove("thinking");
