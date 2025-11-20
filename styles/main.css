@@ -9,6 +9,8 @@
   --accent-1: #ff7aa2;
   --accent-2: #ff4e8a;
   --accent-3: #f6b5d7;
+  --accent-soft: #ffe4f1;
+  --cream: #fff9f4;
   --glass: rgba(255, 255, 255, 0.9);
   --radius-lg: 28px;
 }
@@ -108,6 +110,7 @@ body {
 
 .card {
   width: min(480px, 100%);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 248, 0.96));
   background: var(--glass);
   border-radius: var(--radius-lg);
   padding: 28px 26px 32px;
@@ -118,6 +121,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.46);
   transform: translateY(10px) scale(0.985);
   animation: cardIntro 0.8s ease-out forwards, floatingTilt 16s ease-in-out 1s infinite alternate;
+  isolation: isolate;
+}
+
+.card > *:not(.corner-ribbon) {
+  position: relative;
+  z-index: 1;
 }
 
 .card::before,
@@ -140,6 +149,24 @@ body {
   opacity: 0.75;
   mix-blend-mode: screen;
 }
+
+.card .corner-ribbon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 126, 162, 0.35));
+  opacity: 0.38;
+  filter: blur(0.5px);
+  box-shadow: 0 12px 30px rgba(255, 126, 162, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card .corner-ribbon.r1 { top: -16px; left: -16px; transform: rotate(-6deg); }
+.card .corner-ribbon.r2 { top: -14px; right: -18px; transform: rotate(8deg); }
+.card .corner-ribbon.r3 { bottom: -22px; left: 12%; transform: rotate(2deg); }
+.card .corner-ribbon.r4 { bottom: -16px; right: 8%; transform: rotate(-4deg); }
 
 @keyframes cardIntro {
   0% { opacity: 0; transform: translateY(24px) scale(0.96); }
@@ -184,6 +211,45 @@ body {
   color: var(--muted);
 }
 
+.title::after {
+  content: "¨*•.¸¸.•*¨";
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #d67aa4;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.garland {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 10px 12px 12px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 126, 162, 0.08), transparent 45%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(255, 230, 240, 0.9));
+  box-shadow: 0 8px 20px rgba(255, 126, 162, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  position: relative;
+}
+
+.garland-heart {
+  font-size: 14px;
+  filter: drop-shadow(0 4px 8px rgba(255, 78, 138, 0.25));
+  animation: swing 3.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.garland-heart:nth-child(2) { animation-delay: 0.2s; }
+.garland-heart:nth-child(3) { animation-delay: 0.4s; }
+.garland-heart:nth-child(4) { animation-delay: 0.6s; }
+.garland-heart:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50% { transform: rotate(3deg) translateY(2px); }
 .badge-row {
   display: flex;
   justify-content: center;
@@ -211,6 +277,13 @@ body {
   text-align: center;
   padding: 18px 18px 24px;
   border-radius: 22px;
+  background: radial-gradient(circle at 18% 18%, rgba(255, 220, 236, 0.32), transparent 46%),
+    radial-gradient(circle at 82% 16%, rgba(214, 231, 255, 0.38), transparent 40%),
+    linear-gradient(135deg, rgba(255, 247, 253, 0.96), rgba(239, 246, 255, 0.96));
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 126, 162, 0.18), 0 12px 32px rgba(246, 181, 215, 0.2);
+  border: 1px dashed rgba(255, 126, 162, 0.28);
   background: linear-gradient(135deg, rgba(255, 247, 253, 0.96), rgba(239, 246, 255, 0.96));
   position: relative;
   overflow: hidden;
@@ -258,6 +331,15 @@ body {
 
 .quote-text {
   font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  text-shadow: 0 6px 18px rgba(255, 126, 162, 0.18);
+}
+
+.js-ready .quote-text {
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -266,12 +348,14 @@ body {
   transition: opacity 0.36s ease, transform 0.36s ease;
 }
 
+.js-ready .quote-text.show {
 .quote-text.show {
   opacity: 1;
   transform: translateY(0) scale(1);
   animation: messagePop 0.5s ease;
 }
 
+.js-ready .quote-text.loading {
 .quote-text.loading {
   opacity: 0.9;
   font-size: 16px;
@@ -324,6 +408,14 @@ body {
 .hint {
   font-size: 12px;
   text-align: center;
+  color: #b07a97;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  background: rgba(255, 232, 244, 0.8);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 16px rgba(255, 126, 162, 0.12);
   color: var(--muted);
   margin-top: 12px;
   margin-bottom: 16px;
@@ -368,6 +460,17 @@ body {
   background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
   transform: translateX(-120%);
   animation: shine 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.btn::before {
+  content: "✧¨♡¨✧";
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.18em;
   pointer-events: none;
 }
 

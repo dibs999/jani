@@ -84,6 +84,7 @@ function revealMessage() {
 }
 
 function init() {
+  document.body.classList.add("js-ready");
   setupCopy();
   elements.quoteText.classList.add("show");
   elements.button.addEventListener("click", revealMessage);
