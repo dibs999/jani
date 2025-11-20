@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minispiele für meinen Schatz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body class="games-page">
+  <div class="floating-hearts" aria-hidden="true">
+    <span class="heart h1">💕</span>
+    <span class="heart h2">💖</span>
+    <span class="heart h3">💗</span>
+    <span class="heart h4">💘</span>
+    <span class="heart h5">💝</span>
+    <span class="heart h6">💞</span>
+    <span class="heart h7">💓</span>
+    <span class="heart h8">💕</span>
+  </div>
+  <header class="games-hero">
+    <a class="back-home" href="./index.html">⟵ Zurück zur Zettel-Seite</a>
+    <div class="hero-text">
+      <p class="eyebrow">Süße Überraschungen</p>
+      <h1>Minispiele für dich</h1>
+      <p class="lede">Drei kleine Spiele voller Herzchen, Glitzer und Liebesideen – nur für meinen Schatz.</p>
+    </div>
+  </header>
+
+  <main class="games-grid">
+    <section class="game-card" id="heartHunt">
+      <div class="game-top">
+        <div>
+          <p class="eyebrow">Herzchen fangen</p>
+          <h2>Herzregen</h2>
+        </div>
+        <div class="pill">Zeitlich begrenzt</div>
+      </div>
+      <p class="game-copy">Tippe so viele schwebende Herzen wie möglich, bevor der Regen endet.</p>
+      <div class="heart-field" id="heartField"></div>
+      <div class="game-status">
+        <span>Punkte: <strong id="heartScore">0</strong></span>
+        <span id="heartTimer">10s</span>
+      </div>
+      <button class="btn ghost" id="heartStart">Herzregen starten</button>
+    </section>
+
+    <section class="game-card" id="complimentMixer">
+      <div class="game-top">
+        <div>
+          <p class="eyebrow">Komplimente mischen</p>
+          <h2>Love Mixer</h2>
+        </div>
+        <div class="pill pill-soft">Unendlich</div>
+      </div>
+      <p class="game-copy">Klicke und mixe süße Sätze, die nur zu dir passen.</p>
+      <div class="mixer-output" id="mixerOutput">Min kleiner Schatz verdient die süßesten Worte.</div>
+      <div class="mixer-tags" id="mixerTags"></div>
+      <button class="btn" id="mixerButton">Neues Kompliment</button>
+    </section>
+
+    <section class="game-card" id="dateRoulette">
+      <div class="game-top">
+        <div>
+          <p class="eyebrow">Date-Ideen</p>
+          <h2>Lovey Roulette</h2>
+        </div>
+        <div class="pill pill-soft">Zufall</div>
+      </div>
+      <p class="game-copy">Lass uns eine kleine Idee für unser nächstes Mini-Date auswürfeln.</p>
+      <div class="roulette-wheel" id="rouletteWheel">
+        <div class="roulette-pointer">❤</div>
+        <div class="roulette-track">
+          <div class="roulette-option">Kissenschlacht</div>
+          <div class="roulette-option">Picknick im Bett</div>
+          <div class="roulette-option">Spaziergang mit Kakao</div>
+          <div class="roulette-option">Film mit Decke</div>
+          <div class="roulette-option">Sternchen zählen</div>
+          <div class="roulette-option">Tanz im Wohnzimmer</div>
+        </div>
+      </div>
+      <div class="roulette-result" id="rouletteResult">Bereit zum Drehen!</div>
+      <button class="btn" id="rouletteButton">Drehen</button>
+    </section>
+  </main>
+
+  <footer class="games-footer">
+    <div class="footer-note">Von deinem baby. Immer & überall.</div>
+  </footer>
+
+  <script type="module" src="src/games.js"></script>
+</body>
+</html>
