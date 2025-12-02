@@ -22,37 +22,34 @@ const heartGame = {
 const complimentParts = {
   start: [
     "Min kleiner Schatz",
-    "Mein liebstes Baby",
+    "Mein Baby",
     "Mein süßes Katzi",
-    "Meine Kuschelheldin",
-    "Mein Herzchen",
+    "Meine Fratellerin",
+    "Mein Schlafischafi",
   ],
   middle: [
-    "ist mein Ruheort",
-    "macht meinen Tag magisch",
-    "glitzert heller als alle Sterne",
+    "Ist mein Lieblingsmensch"
     "fühlt sich wie Zuhause an",
     "macht mich so stolz",
   ],
   end: [
-    "und ich drück dich gleich ganz fest.",
+    "und ich drück dich doch so gerne ganz fest.",
     "und ich schick dir 1000 Küsse.",
     "und ich will dich jetzt kuscheln.",
-    "und ich lieb dich bis zum Mond.",
-    "und ich mag jedes Lächeln von dir.",
+    "und ich lieb dich doch sooooooo :(((((.",
+    "und ich mag alles an dir",
   ],
   tags: ["glow", "kiss", "cozy", "soft", "sparkle"],
 };
 
 const dateIdeas = [
-  "Kissenschlacht",
-  "Picknick im Bett",
-  "Spaziergang mit Kakao",
-  "Film mit Decke",
-  "Sternchen zählen",
-  "Tanz im Wohnzimmer",
-  "Pasta-Date mit Kerzen",
-  "Liebesbrief schreiben",
+  "Film schauen (also wirklich hehe)",
+  "Picknick draußen",
+  "Spazieren gehen",
+  "Zusammen was kochen/backen",
+  "Gaaannzzz lange kuscheln",
+  "Einfach mal die Seele fratellen",
+  
 ];
 
 function randomItem(list) {
