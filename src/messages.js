@@ -16,4 +16,10 @@ export const messages = [
   "Min kleiner Hase bist du",
   "Bin doch so stolz auf dich",
   "Finde dich doch so toll",
+  "Mag deine Füße hehe",
+  "Du hast so schöne Augen baby",
+  "Mag doch dein face soooo",
+  "Du hast gute Haut. Würde die gerne mal fassen :(",
+  "Ich lache so gerne mit dir",
+  
 ];
